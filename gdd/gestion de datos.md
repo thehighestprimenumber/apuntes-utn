@@ -183,7 +183,7 @@ Select * from cliente where Cliente is not NULL
 
 vincular a traves de algun atributo, dos tablas.
 
-/home/thpn/utn/gdd/joins.jpg
+![alt](./joins.jpg)
 
 * producto cartesiano: 
 
