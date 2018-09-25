@@ -1,4 +1,6 @@
-Arquitectura cliente-servidor
+[TOC]
+
+# Arquitectura cliente-servidor
 
 red: nodos (entidades que se comunican) + protocolo + medio + mensajes
 
@@ -29,7 +31,7 @@ Distintos lenguajes de SQL que vienen de un standar (ANSI SQL).
 
 + no permite estructuras compuestas
 
-### Ejemplos
+## Ejemplos
 ```sql
 Create table *TABLE* (
 ID int not null primary key,
@@ -47,14 +49,14 @@ Drop table *TABLE*
 Alter table *TABLE* add *COLUMNA* *TIPO* *[NULLABLE]*
 ```
 
-### CHECK (Constraints)
+## CHECK (Constraints)
 
 ```sql
 Alter table *TABLA* add constraint *CHECK_COLUMNA* check (len(*COLUMNA*)>n);
 Alter table *TABLA* add constraint *UNIQUE_COLUMNA* check (UNIQUE(*COLUMNA*));
 ```
 
-### SELECT
+## SELECT
 
 ```sql
 SELECT
@@ -75,7 +77,7 @@ ORDER BY
 Select id_pcia,count(*) from cliente group by id_pcia
 ```
 
-### funciones_grupo
+## funciones de grupo
 
 - sum(num), 
 
@@ -153,7 +155,7 @@ Select id_pcia,count(*) from cliente group by id_pcia
     3. Analizar y guardar plan de ejecución 
     4. Ejecutar plan de acción
     5. Devolver datos
-### plan de ejecucion
+## plan de ejecucion
 
 - en base al costo (filas, bytes, función de estructuras adicionales (indices), algoritmo (secuencial, dicotomica, acceso directo), cantidad de datos)
 
@@ -161,7 +163,7 @@ Select id_pcia,count(*) from cliente group by id_pcia
 
 
 
-### NULL = desconocido
+## NULL = desconocido
 
 ```sql
 Select * from cliente where Cliente = NULL --devuelve {}
@@ -179,7 +181,7 @@ Select * from cliente where Cliente is not NULL
 | NULL | AND  | NULL | NULL |
 | NULL | OR   | NULL | NULL |
 
-### Join
+## Join
 
 vincular a traves de algun atributo, dos tablas.
 
@@ -225,11 +227,11 @@ group by id_pcia, p.nombre
 -- va a mostrar las pcias sin clientes, pero va a dar 1 (pq count (*) cuenta los nulos)
 ```
 
-### Union
+## Union
 
 Resuleve distintas consultas y lo mete en columnas.  tiene un unico *Order By* al final
 
-**Union All**
+### **Union All**
 
 Idem pero trae duplicadas
 
@@ -250,9 +252,9 @@ Idem pero trae duplicadas
 
 
 
-### SubSelect 
+## SubSelect 
 
-#### Estatico
+### Estatico
 
 Muestra el mismo valor en todas las filas.
 
@@ -260,7 +262,7 @@ Muestra el mismo valor en todas las filas.
 select p.*, (select (Max(ID) from cliente)) from pcia p.
 ```
 
-#### Dinámico
+### Dinámico
 
 el subselect está condicionado al select superior. (el sub ve los campos del super)
 
@@ -278,7 +280,7 @@ select MAX(ID) from Cliente c
 where c.id_pcia = p.id
 ```
 
-#### en el from
+### en el from
 
 ==no nos lo dejan usar en el parcial==
 
@@ -299,7 +301,7 @@ select c.id, c.nombre, idp, nombrep from
  	-- no hacia falta hacer los subselect, el chabon flasheo
 ```
 
-#### pcia_total
+**pcia_total**
 
 | c.id | c.nombre | idp  | nombrep |
 | ---- | -------- | ---- | ------- |
