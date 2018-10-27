@@ -17,6 +17,13 @@
 | Busca construir **enunciados verdaderos**                    |                                                              |
 | **Comprobable/verificable**                                  |                                                              |
 
+| hoa  |      |      |
+| ---- | ---- | ---- |
+|      |      |      |
+|      |      |      |
+|      |      |      |
+
+
 
 # Términos de Lógica [^Lógica]
 
@@ -121,7 +128,7 @@ fue el primre epistemólogo[^episteme] - se ocupó de la fundamentación del con
 
 # Clasificación de Problemas
 
-##### problema 
+## problema 
 
 *   vacío del marco teórico. requiere investigación. 
     *   **marco teórico:** conjunto de conocimientos (teorías y supuestos paradigmáticos) aceptados (probados) por la comunidad científica (en los libros, papers). a veces se usan varios marcos teóricos en forma parcial (ej. enfoque interdisciplinario). 
@@ -134,7 +141,7 @@ fue el primre epistemólogo[^episteme] - se ocupó de la fundamentación del con
     *   contenido de la pregunta
     *   contexto en que se formula - marco teórico - le da sentido.
 
-##### hipotesis
+## hipotesis
 
 *   libres creaciones del intelecto humano. 
 
@@ -149,7 +156,7 @@ fue el primre epistemólogo[^episteme] - se ocupó de la fundamentación del con
     *   definición de los términos
     *   enunciado sintético: contenido empírico. -> falsable
 
-*   establecen relaciones entre los términso que contienen
+*   establecen relaciones entre los términos que contienen
     *   causales
     *   funcionales
     *   conceptuales
@@ -157,20 +164,21 @@ fue el primre epistemólogo[^episteme] - se ocupó de la fundamentación del con
 
 *   deben ser relacionarse con el marco teórico mediante la compatibilidad, deducibilidad e implicación, o modificarlo (resistencia de la comunidad científica)
 
-###### hipótesis ad-hoc
+### hipótesis ad-hoc
 
 *   afirmaciones sin apoyo empírico que las justifique 
     *   Algunas sólo se justifican con la aceptación de la H: Procedimiento Circular
     *   Otras podrían ser contrastadas a futuro.
 
 
-#### Según el modo de resolución
+## Según el modo de resolución
 
-|                | Lógicos   | Teóricos                                                     | Pŕacticos(Técnicos [^Técnicas])                                       |
-| -------------- | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Resolución** | algoritmo | hipótesis                                                    | diseño                                                       |
-| **Ciencias**   | formales  | fácticas (ej. quimica)<br>conceptuales - clasificación <br> prácticos - ¿por qué? | tecnologías (ingeniería, bioingeniería) <br> ¿cómo? ¿qué?<br> modificar una situación a partir de una necesidad/deseo. |
-| **Evaluación** |           | verdad                                                       | utilidad, éxito, prudencia [^prudencia]                                |
+|                | Lógicos                                                      | Teóricos                                                     | Pŕacticos(Técnicos [^Tecnica])                               |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Resolución** | algoritmo                                                    | hipótesis                                                    | diseño                                                       |
+| **Ciencias**   | formales                                                     | fácticas (ej. quimica)<br>conceptuales - clasificación <br> prácticos - ¿por qué? | tecnologías (ingeniería, bioingeniería) <br> ¿cómo? ¿qué?<br> modificar una situación a partir de una necesidad/deseo. |
+| **Evaluación** |                                                              | verdad                                                       | utilidad, éxito, prudencia [^prudencia]                      |
+| Metodos        | Axiomatico. demuestran verdades(teoremas) mediante la logica. deductivos | comprobaciones empiricas                                     |                                                              |
 
 
 # Técnica[^tecnica]  vs. tecnología[^tecnologia]
@@ -179,7 +187,7 @@ fue el primre epistemólogo[^episteme] - se ocupó de la fundamentación del con
 | ----------------------- | -------------------- | --------------------- |
 | tipo de conocimiento    | empírico             | científico + "oficio" |
 | producción              | artesanal            | industrial            |
-| relacion con ser humano | consustancial        |                       |
+| relacion con ser humano | consustancial        | contingente           |
 | transmisión             | individual (maestro) | institucional         |
 
 # Ciencia y tecnología
