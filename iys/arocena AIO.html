@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>arocena AIO.md</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --node-fill: #ECECFF; --node-border: #CCCCFF; --note-fill: #fff5ad; --note-border: #aaaa33; --cluster-fill: #ffffde  !important; --cluster-border: #aaaa33  !important; }
+.mermaid .label { color: var(--text-color); }
+.node rect, .node circle, .node ellipse, .node polygon { fill: var(--node-fill); stroke: var(--node-border); stroke-width: 1px; }
+.edgePath .path { stroke: var(--text-color); }
+.edgeLabel { background-color: var(--bg-color); }
+.cluster rect { fill: rgb(255, 255, 222) !important; rx: 4 !important; stroke: rgb(170, 170, 51) !important; stroke-width: 1px !important; }
+.cluster text { fill: var(--text-color); }
+.actor { stroke: var(--node-border); fill: var(--node-fill); }
+text.actor { fill: var(--text-color); stroke: none; }
+.actor-line { stroke: grey; }
+.messageLine0 { stroke-width: 1.5; stroke: var(--text-color); }
+.messageLine1 { stroke-width: 1.5; stroke: var(--text-color); }
+#arrowhead { fill: var(--text-color); }
+#crosshead path { fill: var(--text-color)  !important; stroke: var(--text-color)  !important; }
+.messageText { fill: var(--text-color); stroke: none; }
+.labelBox { stroke: var(--node-border); fill: var(--node-fill); }
+.labelText { fill: var(--text-color); stroke: none; }
+.loopText { fill: var(--text-color); stroke: none; }
+.loopLine { stroke-width: 2; stroke: var(--node-border); }
+.note { stroke: var(--note-border); fill: var(--note-fill); }
+.noteText { fill: var(--text-color); stroke: none; font-size: 14px; }
+.section { stroke: none; opacity: 0.2; }
+.section0 { fill: rgba(102, 102, 255, 0.49); }
+.section2 { fill: rgb(255, 244, 0); }
+.section1, .section3 { fill: white; opacity: 0.2; }
+.sectionTitle0 { fill: var(--text-color); }
+.sectionTitle1 { fill: var(--text-color); }
+.sectionTitle2 { fill: var(--text-color); }
+.sectionTitle3 { fill: var(--text-color); }
+.sectionTitle { text-anchor: start; font-size: 11px; }
+.grid .tick { stroke: lightgrey; opacity: 0.3; shape-rendering: crispEdges; }
+.grid path { stroke-width: 0; }
+.today { fill: none; stroke: red; stroke-width: 2px; }
+.task { stroke-width: 2; }
+.taskText { text-anchor: middle; font-size: 11px; }
+.taskTextOutsideRight { fill: black; text-anchor: start; font-size: 11px; }
+.taskTextOutsideLeft { fill: black; text-anchor: end; font-size: 11px; }
+.taskText0, .taskText1, .taskText2, .taskText3 { fill: white; }
+.task0, .task1, .task2, .task3 { fill: rgb(138, 144, 221); stroke: rgb(83, 79, 188); }
+.taskTextOutside0, .taskTextOutside2 { fill: var(--text-color); }
+.taskTextOutside1, .taskTextOutside3 { fill: var(--text-color); }
+.active0, .active1, .active2, .active3 { fill: rgb(191, 199, 255); stroke: rgb(83, 79, 188); }
+.activeText0, .activeText1, .activeText2, .activeText3 { fill: black !important; }
+.done0, .done1, .done2, .done3 { stroke: grey; fill: lightgrey; stroke-width: 2; }
+.doneText0, .doneText1, .doneText2, .doneText3 { fill: black !important; }
+.crit0, .crit1, .crit2, .crit3 { stroke: rgb(255, 136, 136); fill: red; stroke-width: 2; }
+.activeCrit0, .activeCrit1, .activeCrit2, .activeCrit3 { stroke: rgb(255, 136, 136); fill: rgb(191, 199, 255); stroke-width: 2; }
+.doneCrit0, .doneCrit1, .doneCrit2, .doneCrit3 { stroke: rgb(255, 136, 136); fill: lightgrey; stroke-width: 2; cursor: pointer; shape-rendering: crispEdges; }
+.doneCritText0, .doneCritText1, .doneCritText2, .doneCritText3 { fill: black !important; }
+.activeCritText0, .activeCritText1, .activeCritText2, .activeCritText3 { fill: black !important; }
+.titleText { text-anchor: middle; font-size: 18px; fill: black; }
+.node text { font-size: 14px; }
+div.mermaidTooltip { position: absolute; text-align: center; max-width: 200px; padding: 2px; font-size: 12px; background: rgb(255, 255, 222); border: 1px solid rgb(170, 170, 51); border-radius: 2px; pointer-events: none; z-index: 100; }
+#write .md-diagram-panel .md-diagram-panel-preview div { width: initial; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; }
+.CodeMirror-lines { padding: 4px 0px; }
+.CodeMirror pre { }
+.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler { background-color: white; }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background-color: rgb(247, 247, 247); white-space: nowrap; }
+.CodeMirror-linenumbers { }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.CodeMirror div.CodeMirror-cursor { border-left: 1px solid black; z-index: 3; }
+.CodeMirror div.CodeMirror-secondarycursor { border-left: 1px solid silver; }
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursor { width: auto; border: 0px; background: rgb(119, 238, 119); z-index: 1; }
+.CodeMirror div.CodeMirror-cursor.CodeMirror-overwrite { }
+.cm-tab { display: inline-block; }
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property { color: rgb(217, 79, 138); }
+.cm-s-typora-default pre.cm-header1:not(.cm-atom) :not(.cm-overlay) { font-size: 2rem; line-height: 2rem; }
+.cm-s-typora-default pre.cm-header2:not(.cm-atom) :not(.cm-overlay) { font-size: 1.4rem; line-height: 1.4rem; }
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number { color: rgb(149, 132, 134); }
+.cm-s-typora-default .cm-table-row, .cm-s-typora-default .cm-block-start { font-family: var(--monospace); }
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code { color: rgb(74, 90, 159); font-family: var(--monospace); }
+.cm-s-typora-default .cm-tag { color: rgb(169, 68, 66); }
+.cm-s-typora-default .cm-string { color: rgb(126, 134, 169); }
+.cm-s-typora-default .cm-link { color: rgb(196, 122, 15); text-decoration: underline; }
+.cm-s-typora-default .cm-variable-2, .cm-s-typora-default .cm-variable-1 { color: inherit; }
+.cm-s-typora-default .cm-overlay { font-family: var(--monospace); }
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor { border-left: 3px solid rgb(228, 98, 154); }
+.cm-s-typora-default .CodeMirror-activeline-background { left: -60px; right: -30px; background: rgba(204, 204, 204, 0.2); }
+.cm-s-typora-default .CodeMirror-gutters { border-right: none; background-color: inherit; }
+.cm-s-typora-default .cm-trailing-space-new-line::after, .cm-startspace::after, .cm-starttab .cm-tab::after { content: "•"; position: absolute; left: 0px; opacity: 0; font-family: LetterGothicStd, monospace; }
+.os-windows .cm-startspace::after, .os-windows .cm-starttab .cm-tab::after { left: -0.1em; }
+.cm-starttab .cm-tab::after { content: " "; }
+.cm-startspace, .cm-tab, .cm-starttab, .cm-trailing-space-a, .cm-trailing-space-b, .cm-trailing-space-new-line { font-family: var(--monospace); position: relative; }
+.cm-s-typora-default .cm-trailing-space-new-line::after { content: "↓"; opacity: 0.3; }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: black; }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-property { color: black; }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: blue; }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: bold; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: rgb(255, 0, 0); }
+.cm-invalidchar { color: rgb(255, 0, 0); }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { margin-bottom: -30px; margin-right: -30px; padding-bottom: 30px; padding-right: 30px; height: 100%; outline: none; position: relative; box-sizing: content-box; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow-x: hidden; overflow-y: scroll; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow-y: hidden; overflow-x: scroll; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: none !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: transparent; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-widget { }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.CodeMirror-selected { background: rgb(217, 217, 217); }
+.CodeMirror-focused .CodeMirror-selected { background: rgb(215, 212, 240); }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+.CodeMirror span { }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+.CodeMirror-lint-markers { width: 16px; }
+.CodeMirror-lint-tooltip { background-color: infobackground; border: 1px solid black; border-radius: 4px; color: infotext; font-family: var(--monospace); overflow: hidden; padding: 2px 5px; position: fixed; white-space: pre-wrap; z-index: 10000; max-width: 600px; opacity: 0; transition: opacity 0.4s; font-size: 0.8em; }
+.CodeMirror-lint-mark-error, .CodeMirror-lint-mark-warning { background-position: left bottom; background-repeat: repeat-x; }
+.CodeMirror-lint-mark-error { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sJDw4cOCW1/KIAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAHElEQVQI12NggIL/DAz/GdA5/xkY/qPKMDAwAADLZwf5rvm+LQAAAABJRU5ErkJggg=="); }
+.CodeMirror-lint-marker-error, .CodeMirror-lint-marker-warning { background-position: center center; background-repeat: no-repeat; cursor: pointer; display: inline-block; height: 16px; width: 16px; vertical-align: middle; position: relative; }
+.CodeMirror-lint-message-error, .CodeMirror-lint-message-warning { padding-left: 18px; background-position: left top; background-repeat: no-repeat; }
+.CodeMirror-lint-marker-error, .CodeMirror-lint-message-error { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAHlBMVEW7AAC7AACxAAC7AAC7AAAAAAC4AAC5AAD///+7AAAUdclpAAAABnRSTlMXnORSiwCK0ZKSAAAATUlEQVR42mWPOQ7AQAgDuQLx/z8csYRmPRIFIwRGnosRrpamvkKi0FTIiMASR3hhKW+hAN6/tIWhu9PDWiTGNEkTtIOucA5Oyr9ckPgAWm0GPBog6v4AAAAASUVORK5CYII="); }
+.CodeMirror-lint-marker-warning, .CodeMirror-lint-message-warning { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAANlBMVEX/uwDvrwD/uwD/uwD/uwD/uwD/uwD/uwD/uwD6twD/uwAAAADurwD2tQD7uAD+ugAAAAD/uwDhmeTRAAAADHRSTlMJ8mN1EYcbmiixgACm7WbuAAAAVklEQVR42n3PUQqAIBBFUU1LLc3u/jdbOJoW1P08DA9Gba8+YWJ6gNJoNYIBzAA2chBth5kLmG9YUoG0NHAUwFXwO9LuBQL1giCQb8gC9Oro2vp5rncCIY8L8uEx5ZkAAAAASUVORK5CYII="); }
+.CodeMirror-lint-marker-multiple { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAMAAADzjKfhAAAACVBMVEUAAAAAAAC/v7914kyHAAAAAXRSTlMAQObYZgAAACNJREFUeNo1ioEJAAAIwmz/H90iFFSGJgFMe3gaLZ0od+9/AQZ0ADosbYraAAAAAElFTkSuQmCC"); background-repeat: no-repeat; background-position: right bottom; width: 100%; height: 100%; }
+
+
+:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+.typora-export #write { margin: 0px auto; }
+#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
+#write li > table:first-child { margin-top: -20px; }
+img { max-width: 100%; vertical-align: middle; }
+input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+::before, ::after, * { box-sizing: border-box; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+.typora-export p { white-space: normal; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
+#write > figure:first-child { margin-top: 16px; }
+figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 80px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+pre { white-space: pre-wrap; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+.md-fences.mock-cm { white-space: pre-wrap; }
+.show-fences-line-number .md-fences { padding-left: 0px; }
+.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
+.CodeMirror-line { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
+.footnotes + .footnotes { margin-top: -1em; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li p, li .mathjax-block { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+@media print {
+  html, body { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+  p { orphans: 4; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0mm; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > img:only-child { display: block; margin: auto; }
+p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+p + .mathjax-block { margin-top: -1.143rem; }
+.mathjax-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
+.task-list { list-style-type: none; }
+.task-list-item { position: relative; padding-left: 1em; }
+.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+.md-tag { opacity: 0.5; }
+pre, code, tt { font-family: var(--monospace); }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
+a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+table tr th { border-bottom: 0px; }
+
+
+:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: normal; src: local("Open Sans Regular"), url("./github/400.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: normal; src: local("Open Sans Italic"), url("./github/400i.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
+html { font-size: 16px; }
+body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+#write { max-width: 860px; margin: 0px auto; padding: 20px 30px 100px; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+body > :first-child { margin-top: 0px !important; }
+body > :last-child { margin-bottom: 0px !important; }
+a { color: rgb(65, 131, 196); }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+h1 tt, h1 code { font-size: inherit; }
+h2 tt, h2 code { font-size: inherit; }
+h3 tt, h3 code { font-size: inherit; }
+h4 tt, h4 code { font-size: inherit; }
+h5 tt, h5 code { font-size: inherit; }
+h6 tt, h6 code { font-size: inherit; }
+h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+h3 { font-size: 1.5em; line-height: 1.43; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(119, 119, 119); }
+p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+li > ol, li > ul { margin: 0px; }
+hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+body > h2:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child { margin-top: 0px; padding-top: 0px; }
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 { margin-top: 0px; padding-top: 0px; }
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p { margin-top: 0px; }
+li p.first { display: inline-block; }
+ul, ol { padding-left: 30px; }
+ul:first-child, ol:first-child { margin-top: 0px; }
+ul:last-child, ol:last-child { margin-bottom: 0px; }
+blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
+blockquote blockquote { padding-right: 0px; }
+table { padding: 0px; word-break: initial; }
+table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
+table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
+.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
+.md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
+.task-list { padding-left: 0px; }
+.task-list-item { padding-left: 32px; }
+.task-list-item input { top: 3px; left: 8px; }
+@media screen and (min-width: 914px) {
+}
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { word-wrap: break-word; }
+}
+.md-fences { background-color: rgb(248, 248, 248); }
+#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+.mathjax-block > .code-tooltip { bottom: 0.375rem; }
+#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+.md-image > .md-meta { border: 1px solid rgb(221, 221, 221); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-tag { color: inherit; }
+.md-toc { margin-top: 20px; padding-bottom: 20px; }
+.sidebar-tabs { border-bottom: none; }
+#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+#md-notification::before { top: 10px; }
+.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+.md-lang { color: rgb(180, 101, 77); }
+
+
+
+
+
+
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-node'><div class='md-toc' mdtype='toc'><p class="md-toc-content"><span class="md-toc-item md-toc-h2" data-ref="n940"><a class="md-toc-inner" href="#header-n940">Parte I</a></span><span class="md-toc-item md-toc-h4" data-ref="n138"><a class="md-toc-inner" href="#header-n138">1. Por qué la 1ra R.I se inició en Inglaterra?</a></span><span class="md-toc-item md-toc-h4" data-ref="n9"><a class="md-toc-inner" href="#header-n9">2. ???Qué rol tuvo la ciencia en los orgígenes de la 1 R.I.?</a></span><span class="md-toc-item md-toc-h4" data-ref="n16"><a class="md-toc-inner" href="#header-n16">3. Qué fue lo más relevante en los cambios técnico-productivos? Cuál fue el rol de los factores tradicionales de producción (tierra, trabajo, capital)?</a></span><span class="md-toc-item md-toc-h4" data-ref="n19"><a class="md-toc-inner" href="#header-n19">4. Diferencia introducida por la máquina de vapor de Watts vs. el de Newcomen?</a></span><span class="md-toc-item md-toc-h4" data-ref="n22"><a class="md-toc-inner" href="#header-n22">5. Por qué la fábrica construyó un nuevo puente entre innovación e invención? Relación con el sist. de producción de la R.I.</a></span><span class="md-toc-item md-toc-h4" data-ref="n25"><a class="md-toc-inner" href="#header-n25">6. Desigual difusión de las innovaciones entre Inglaterra y Continente</a></span><span class="md-toc-item md-toc-h4" data-ref="n28"><a class="md-toc-inner" href="#header-n28">7. Rol del estado en ese proceso</a></span><span class="md-toc-item md-toc-h4" data-ref="n52"><a class="md-toc-inner" href="#header-n52">8. Impacto de la investigación científica en el proceso de industrialización</a></span><span class="md-toc-item md-toc-h4" data-ref="n55"><a class="md-toc-inner" href="#header-n55">9. ???Nuevos elementos de la 2RI</a></span><span class="md-toc-item md-toc-h4" data-ref="n70"><a class="md-toc-inner" href="#header-n70">10. Impacto de la electricidad en la reorganización de la producción en la 2RI</a></span><span class="md-toc-item md-toc-h4" data-ref="n73"><a class="md-toc-inner" href="#header-n73">11. Mejora sustancial introducida por los desarrollos en química</a></span><span class="md-toc-item md-toc-h4" data-ref="n81"><a class="md-toc-inner" href="#header-n81">12. Propuesta Taylorista de orgnización del proceso productivo</a></span><span class="md-toc-item md-toc-h4" data-ref="n97"><a class="md-toc-inner" href="#header-n97">13. Explicar desplazamiento de la vanguardia industrial a fines del S XIX, de GB a Alemania</a></span><span class="md-toc-item md-toc-h4" data-ref="n107"><a class="md-toc-inner" href="#header-n107">14. Por qué "el éxito es conservador y contraproducente"</a></span><span class="md-toc-item md-toc-h4" data-ref="n110"><a class="md-toc-inner" href="#header-n110">15. Clima espiritual decimonónico respecto a una visión unificada del mundo y cómo esa imagen se desdibuja.</a></span><span class="md-toc-item md-toc-h4" data-ref="n111"><a class="md-toc-inner" href="#header-n111">???Consecuencias para las políticas científico-tecnológicas</a></span><span class="md-toc-item md-toc-h4" data-ref="n116"><a class="md-toc-inner" href="#header-n116"> </a></span><span class="md-toc-item md-toc-h3" data-ref="n119"><a class="md-toc-inner" href="#header-n119">1er RI</a></span><span class="md-toc-item md-toc-h3" data-ref="n122"><a class="md-toc-inner" href="#header-n122">2da RI</a></span><span class="md-toc-item md-toc-h2" data-ref="n146"><a class="md-toc-inner" href="#header-n146">Parte II</a></span><span class="md-toc-item md-toc-h4" data-ref="n148"><a class="md-toc-inner" href="#header-n148">1. Describa el planteo de Schumpeter respecto de la innovación y los ciclos económicos del capitalismo.</a></span><span class="md-toc-item md-toc-h4" data-ref="n183"><a class="md-toc-inner" href="#header-n183">2. Qué muestra el complejo electrónico en lo que respecta a la innovación?</a></span><span class="md-toc-item md-toc-h4" data-ref="n224"><a class="md-toc-inner" href="#header-n224">3. Por qué dice que la electrónica era “demasiado esotérica para permitir empírismos ingenuos”?</a></span><span class="md-toc-item md-toc-h4" data-ref="n227"><a class="md-toc-inner" href="#header-n227">4. Qué papel jugaron los Estados en el desarrollo de empresas tecnológicas en Gran Bretaña, Alemania, EEUU?</a></span><span class="md-toc-item md-toc-h4" data-ref="n233"><a class="md-toc-inner" href="#header-n233">5. Qué estrategia llevó a Japón a ocupar un lugar destacado?</a></span><span class="md-toc-item md-toc-h4" data-ref="n237"><a class="md-toc-inner" href="#header-n237">6. Qué características presenta el desarrollo de las computadoras, qué rol juega el mercado, qué peso tuvieron las tareas de desarrollo y las de investigación básica?</a></span><span class="md-toc-item md-toc-h4" data-ref="n247"><a class="md-toc-inner" href="#header-n247">7. Cómo trabajaron los laboratorios Bell?</a></span><span class="md-toc-item md-toc-h4" data-ref="n258"><a class="md-toc-inner" href="#header-n258">8.  Qué pronósticos se pueden aventurar por las sucesivas reacciones desencadenadas por el complejo electrónico?</a></span><span class="md-toc-item md-toc-h4" data-ref="n269"><a class="md-toc-inner" href="#header-n269">9.  Realice una síntesis de la evolución que tuvo el mundo del trabajo desde su reestructuración con el fordismo hasta su superación por lo que podría llamarse  posfordismo.</a></span><span class="md-toc-item md-toc-h4" data-ref="n272"><a class="md-toc-inner" href="#header-n272">10.  Describa las diferencias entre fordismo y posfordismo</a></span><span class="md-toc-item md-toc-h4" data-ref="n304"><a class="md-toc-inner" href="#header-n304">11.  Qué se entiende por crisis posfordista del autoritarismo fabril?</a></span><span class="md-toc-item md-toc-h4" data-ref="n344"><a class="md-toc-inner" href="#header-n344">12.  Caracterice las rutas posfordistas sueca y japonesa. Qué modelos de innovación sigue  cada una?</a></span><span class="md-toc-item md-toc-h4" data-ref="n355"><a class="md-toc-inner" href="#header-n355">13.  Por qué considera Arocena que el modelo japonés tiene más potencialidad para imponerse frente al modelo sueco?</a></span><span class="md-toc-item md-toc-h4" data-ref="n358"><a class="md-toc-inner" href="#header-n358">14.  Qué características señala Freeman son las que han llevado a Japón a la vanguardia en sus políticas de innovación?</a></span><span class="md-toc-item md-toc-h4" data-ref="n406"><a class="md-toc-inner" href="#header-n406">15.  Qué consideraciones críticas se hacen respecto del desarrollo económico del sudeste asiático? Qué enseñanzas deja?</a></span><span class="md-toc-item md-toc-h4" data-ref="n426"><a class="md-toc-inner" href="#header-n426">16 Caracterice el actual paradigma tecno-económico. Qué rol ocupa el procesamiento de información y el factor humano?</a></span><span class="md-toc-item md-toc-h4" data-ref="n480"><a class="md-toc-inner" href="#header-n480">17.  Qué se entiende por “ventana de oportunidad” ante una transición del paradigma tecno-económico?</a></span><span class="md-toc-item md-toc-h4" data-ref="n497"><a class="md-toc-inner" href="#header-n497">18.  ???Reseñe las conclusiones a las que llega el autor en este recorrido histórico por las revoluciones industriales</a></span></p></div><p>&nbsp;</p><h2><a name='header-n940' class='md-header-anchor '></a>Parte I</h2><h4><a name='header-n138' class='md-header-anchor '></a>1. Por qué la 1ra R.I se inició en Inglaterra?</h4><p>sustitición de importaciones de algodón de india. </p><p>telar hidráulico satura la capacidad de los ríos --&gt; máquina de vapor</p><h4><a name='header-n9' class='md-header-anchor '></a>2. ???Qué rol tuvo la ciencia en los orgígenes de la 1 R.I.?</h4><p>casi nulo. el flujo fue más bien inverso (de la tec. hacia la ciencia)</p><p>pueblo con grandes capacidades técnicas e innovador en la práctica productiva</p><p>luego se empezó a buscar en la ciencia soluciones a los problemas técnicos que iban surgiendo.</p><h4><a name='header-n16' class='md-header-anchor '></a>3. Qué fue lo más relevante en los cambios técnico-productivos? Cuál fue el rol de los factores tradicionales de producción (tierra, trabajo, capital)?</h4><p>importantes en cuanto a la calidad, no a la cantidad. lo primario fueron la mayor productividad de las nuevas técnicas y una mayor capacidad y experiencia de empresarios y obreros.</p><h4><a name='header-n19' class='md-header-anchor '></a>4. Diferencia introducida por la máquina de vapor de Watts vs. el de Newcomen?</h4><p>menos carbón y de velocidad uniforme. surgió de la técnica  y no de la ciencia.</p><h4><a name='header-n22' class='md-header-anchor '></a>5. Por qué la fábrica construyó un nuevo puente entre innovación e invención? Relación con el sist. de producción de la R.I.</h4><p>la fábrica pone énfasis sobre la producción y con capacidad de variar los mecanismos y herramientas. Entonces estaban siempre abiertos a mejorar sus ingresos mediante la aplicación de nuevos inventos.</p><h4><a name='header-n25' class='md-header-anchor '></a>6. Desigual difusión de las innovaciones entre Inglaterra y Continente</h4><p>Inglaterra prohibió la emigración de artesanos ingleses y de su maquinaria.</p><h4><a name='header-n28' class='md-header-anchor '></a>7. Rol del estado en ese proceso</h4><ul><li><p>escuelas técnicas para la formación de ingenieros y mecánicos.</p></li><li><p>orientación y asistencia técnica</p></li><li><p>subvenciones a inventores y empresarios inmigrantes</p></li><li><p>regalos de maquinaria</p></li><li><p>rebajas de impuestos sobre las importaciones de equipo industrial</p><ul><li>en los inicios, cuando no se tiene una dirección clara para el avance tecnológico, menor control estatal llevan a más creatividad y diversidad.</li><li>cuando se aclara la dirección, el estado dene actuar decididamente para minimizar el atraso.</li></ul></li></ul><h4><a name='header-n52' class='md-header-anchor '></a>8. Impacto de la investigación científica en el proceso de industrialización</h4><p>cuando se logró mayor precisión en la producción de herramientas, se hizo útil la mecánica de Netwon para el diseño de las mismas</p><h4><a name='header-n55' class='md-header-anchor '></a>9. ???Nuevos elementos de la 2RI</h4><ul><li>química orgánica, productos sintéticos, </li><li>máquina de combustión interna</li><li>cadenas de montaje</li></ul><ul><li>acero barato (pura ciencia), fabricación de precisión, electricidad: bienes de consumo (relojes, maquinas de coser, bicicletas, electrodomésticos)</li></ul><h4><a name='header-n70' class='md-header-anchor '></a>10. Impacto de la electricidad en la reorganización de la producción en la 2RI</h4><p>nuevas posibilidades para la industria artesanal dispersa y pequeños talleres: mueva división del trabajo entre grandes y pequeñás unidades, que pueden complementarse </p><h4><a name='header-n73' class='md-header-anchor '></a>11. Mejora sustancial introducida por los desarrollos en química</h4><ul><li>materiales nuevos, sintéticos, y baratos</li><li>estimuló y fue estimulado por I+D como actividad propia de la lempresa.</li></ul><h4><a name='header-n81' class='md-header-anchor '></a>12. Propuesta Taylorista de orgnización del proceso productivo</h4><p>para tener tiempos uniformes y no depender de la cualificación  de los empleados:</p><ul><li>descomponer el trabajo  en operaciones simples, que se peudan ejecutar por maquinas manejadas por obrers</li><li>normalizar la producción para que las piezas del mismo tipo fueran intercambiables y el montaje pueda hacerse rutina</li></ul><p>Cadena de montaje: abarata producción y control del proceso de trabajo</p><p>El control pasa a la gerencia, en cuanto a la forma y al control y dictado de cada paso del proceso.</p><p>&nbsp;</p><h4><a name='header-n97' class='md-header-anchor '></a>13. Explicar desplazamiento de la vanguardia industrial a fines del S XIX, de GB a Alemania</h4><p>educación elemental </p><ul><li>británica: disciplinar a los proletarios para integrarlos a la sociedad. abandona la instrucción técnica en el ámbito publico</li><li>alemana: da alto valor a la educación. reconocen el valor del ingeniero con base científica.</li></ul><h4><a name='header-n107' class='md-header-anchor '></a>14. Por qué &quot;el éxito es conservador y contraproducente&quot;</h4><p>Los ingleses consideraban que, si habían llegado a donde estaban, debían seguir con lo que venían haciendo, y dejaban de innovar.</p><h4><a name='header-n110' class='md-header-anchor '></a>15. Clima espiritual decimonónico respecto a una visión unificada del mundo y cómo esa imagen se desdibuja.</h4><h4><a name='header-n111' class='md-header-anchor '></a>???Consecuencias para las políticas científico-tecnológicas</h4><p>S. XIX: &quot;la estructura fundamental de la teoría científica está asegurada&quot;. &quot;quedan pocas cosas por descubrir&quot;. &quot;todo puede ser explicado por la cs. &quot;monismo explicativo (todo tiene UNA causa) -&gt; marxismo, economía neoclásica&quot;</p><p>la teoría de la relatividad y la cuántica rompen con la idea de  verdad científica. nueva visión historicista de la ciencia: nada es definitivo. </p><h4><a name='header-n116' class='md-header-anchor '></a> </h4><p>&nbsp;</p><h3><a name='header-n119' class='md-header-anchor '></a>1er RI</h3><p>&nbsp;</p><h3><a name='header-n122' class='md-header-anchor '></a>2da RI</h3><p>la 2da rev es una revolucion porque produce un cambio acelerado en el equipamiento tecnologico, en la esturcutra de la sociedad, en las instituciones, y en las condiciones de trabajo de los S.J.</p><ul><li>maquinas y energía mecánica, </li><li>crecimiento del empresariado industrial y del proletariado</li><li>surge la fábrica y se convierte en el centro de la producción</li><li>mecanización y fragmentación del trabajo industrial</li></ul><h2><a name='header-n146' class='md-header-anchor '></a>Parte II</h2><h4><a name='header-n148' class='md-header-anchor '></a>1. Describa el planteo de Schumpeter respecto de la innovación y los ciclos económicos del capitalismo.</h4><ul><li><p>dos etapas</p><ul><li><p>empresario individual (distinto al inventor)</p><ul><li>origen de la innovación</li></ul></li><li><p>empresa grande</p><ul><li>corriente circular, equilibrio</li></ul></li></ul></li><li><p>el modo en que las innovaciones aparecen y son absorivdas por el sistema económico explica las revoluciones económicas</p></li><li><p>el capitalismo sufre una evolución: fases/ondas.</p></li><li><p><em>en la contracción de predice el fin del capitalismo.</em></p></li><li><p><em>se agota el sist. productivo y una innovación lo vuelven a impulsar</em></p><p>​					1770 1. rev</p><p><em>​						1870 2° rev.</em></p><p><em>​			imperialismos (busquedas de recursos en las colonias)</em></p><p>​		revolución rusa</p><p><em>​	1.gm.</em></p><p><em>1929 crisis wallstreet: 	descreimiento del modo de vida. crisis del liberalismo[^:liberalismo]</em></p><p>​	Keynes: el estado como protagonista del mercado (evitando el comunismo)</p><p>​	Fascismo: niega la lucha de clases</p><p>​						PICO?
+<em>1970 crisis</em></p><p>​			1980: 3ra rev </p><ul><li>1990: neoliberalismo*</li></ul></li></ul><h4><a name='header-n183' class='md-header-anchor '></a>2. Qué muestra el complejo electrónico en lo que respecta a la innovación?</h4><ul><li>contribuciones internacionales</li><li>flujo de ideas de la ciencia a la ingeniería a los negocios</li><li>investigación de grupo y financiada</li><li>rivalidades tencológicas</li></ul><h4><a name='header-n224' class='md-header-anchor '></a>3. Por qué dice que la electrónica era “demasiado esotérica para permitir empírismos ingenuos”?</h4><p>demasiado compleja para la casualidad. los inventores tenian fuertes bases cientificas</p><h4><a name='header-n227' class='md-header-anchor '></a>4. Qué papel jugaron los Estados en el desarrollo de empresas tecnológicas en Gran Bretaña, Alemania, EEUU?</h4><p>promoviendo y apoyando económicamente a emrpesas como RCA, TElefunken</p><p>carrera espacial</p><h4><a name='header-n233' class='md-header-anchor '></a>5. Qué estrategia llevó a Japón a ocupar un lugar destacado?</h4><p>Ministerio para la Industria y el Comercio (MITI) promueve formación de los tabajadores e integración de la producción, coordinando empresas, universidades e institutos de investigación</p><h4><a name='header-n237' class='md-header-anchor '></a>6. Qué características presenta el desarrollo de las computadoras, qué rol juega el mercado, qué peso tuvieron las tareas de desarrollo y las de investigación básica?</h4><p>matematicos + grants = &quot;calculadora&quot;</p><p>2GM - propositos belicos</p><p>no se creia que tuviera demanda comercial, pero se vendieron muchs mas de las esperadas</p><p>investigacion basica??</p><h4><a name='header-n247' class='md-header-anchor '></a>7. Cómo trabajaron los laboratorios Bell?</h4><ul><li>muchos recursos hacia investigacion básica. </li><li>invención constante</li><li>inventa el transistor, que necesitó mucho más investigación para que fuera aplicable comercialmente</li></ul><h4><a name='header-n258' class='md-header-anchor '></a>8.  Qué pronósticos se pueden aventurar por las sucesivas reacciones desencadenadas por el complejo electrónico?</h4><ul><li>la educación se va desplazando hacia afuera de las instituciones formales.</li><li>desempleo</li><li>nuevas ocupaciones</li></ul><h4><a name='header-n269' class='md-header-anchor '></a>9.  Realice una síntesis de la evolución que tuvo el mundo del trabajo desde su reestructuración con el fordismo hasta su superación por lo que podría llamarse  posfordismo.</h4><div class="md-diagram-panel"><svg id="mermaidChart0" width="969" xmlns="http://www.w3.org/2000/svg" height="547" viewBox="0 0 989 567" style="height: auto; max-width: 100%;"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M155,74.5L155,111L155,136" marker-end="url(#arrowhead28)" style="fill:none"></path><defs><marker id="arrowhead28" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M155,225L155,250L155,286.5" marker-end="url(#arrowhead29)" style="fill:none"></path><defs><marker id="arrowhead29" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M155,329.5L155,366L257.68817204301075,391" marker-end="url(#arrowhead30)" style="fill:none"></path><defs><marker id="arrowhead30" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M284.73655913978496,434L213.5,459L213.5,484" marker-end="url(#arrowhead31)" style="fill:none"></path><defs><marker id="arrowhead31" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M346,341L346,366L346,391" marker-end="url(#arrowhead32)" style="fill:none"></path><defs><marker id="arrowhead32" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M623,329.5L623,366L455,394.20216606498195" marker-end="url(#arrowhead33)" style="fill:none"></path><defs><marker id="arrowhead33" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M447.0268817204301,434L564.5,459L564.5,484" marker-end="url(#arrowhead34)" style="fill:none"></path><defs><marker id="arrowhead34" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M840,86L840,111L840,159" marker-end="url(#arrowhead35)" style="fill:none"></path><defs><marker id="arrowhead35" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M840,202L840,250L840,286.5" marker-end="url(#arrowhead36)" style="fill:none"></path><defs><marker id="arrowhead36" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M840,329.5L840,366L840,391" marker-end="url(#arrowhead37)" style="fill:none"></path><defs><marker id="arrowhead37" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node" id="taylorismo" transform="translate(155,53)" style="opacity: 1;"><rect rx="0" ry="0" x="-53" y="-21.5" width="106" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-43,-11.5)"><foreignObject width="86" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">taylorismo</div></foreignObject></g></g></g><g class="node" id="F" transform="translate(155,180.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-135" y="-44.5" width="270" height="89"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-125,-34.5)"><foreignObject width="250" height="69"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">fordismo<br>producción y consumo masivos,<br>uniformes y en expansión</div></foreignObject></g></g></g><g class="node" id="Exito" transform="translate(155,308)" style="opacity: 1;"><rect rx="0" ry="0" x="-32" y="-21.5" width="64" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-22,-11.5)"><foreignObject width="44" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">Exito</div></foreignObject></g></g></g><g class="node" id="T" transform="translate(346,412.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-109" y="-21.5" width="218" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-99,-11.5)"><foreignObject width="198" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">irradió al tercer mundo</div></foreignObject></g></g></g><g class="node" id="P" transform="translate(213.5,505.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-183" y="-21.5" width="366" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-173,-11.5)"><foreignObject width="346" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">menores salarios y conflictos sindicales</div></foreignObject></g></g></g><g class="node" id="D" transform="translate(346,308)" style="opacity: 1;"><rect rx="5" ry="5" x="-109" y="-33" width="218" height="66"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-99,-23)"><foreignObject width="198" height="46"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">descontento de empledos<br>del 1mundo-70s</div></foreignObject></g></g></g><g class="node" id="Eco" transform="translate(623,308)" style="opacity: 1;"><rect rx="5" ry="5" x="-118" y="-21.5" width="236" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-108,-11.5)"><foreignObject width="216" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">preocupaciones ecológicas</div></foreignObject></g></g></g><g class="node" id="Di" transform="translate(564.5,505.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-118" y="-21.5" width="236" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-108,-11.5)"><foreignObject width="216" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">Nueva divisón del trabajo</div></foreignObject></g></g></g><g class="node" id="Ele" transform="translate(840,53)" style="opacity: 1;"><rect rx="5" ry="5" x="-109" y="-33" width="218" height="66"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-99,-23)"><foreignObject width="198" height="46"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">Complejo Electronico<br>Automatizacion Flexible</div></foreignObject></g></g></g><g class="node" id="I" transform="translate(840,180.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-53" y="-21.5" width="106" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-43,-11.5)"><foreignObject width="86" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">Innovacion</div></foreignObject></g></g></g><g class="node" id="Desempleo" transform="translate(840,308)" style="opacity: 1;"><rect rx="0" ry="0" x="-49" y="-21.5" width="98" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-39,-11.5)"><foreignObject width="78" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">Desempleo</div></foreignObject></g></g></g><g class="node" id="Revolucion?" transform="translate(840,412.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-57.5" y="-21.5" width="115" height="43"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-47.5,-11.5)"><foreignObject width="95" height="23"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml">Revolucion?</div></foreignObject></g></g></g></g></g></g></svg></div><h4><a name='header-n272' class='md-header-anchor '></a>10.  Describa las diferencias entre fordismo y posfordismo</h4><p><em>fordismo: racionalizacion del proceso productivo. division del trabajo intenieros / operarios. presupone una empresa deonde entra materia prima y sale producto terminado (mega empresa)</em></p><p><em>postfordismo(valoracion del factor humano (conocimiento, creatividad, proactividad))</em></p><p><em>autoritarismo post fabril -&gt; proceso mas flexible respecto a logica del mercado quej es muy cambiate. lo rigido del fordismo no puede adaptarse.</em></p><p><em>el modelo fordista es de pleno empleo: condiciones de trabajo abundantes; pero desarrollo de clase media, buena remuneración, pleno empleo</em></p><p>​  <br/></p><figure><table><thead><tr><th>&nbsp;</th><th>Fordismo</th><th>PostFordismo</th></tr></thead><tbody><tr><td>criterio organizador de la producción</td><td>oferta de productos estandarizados,maquinaria con propósitos específicos,estandarización, economías de escala</td><td>flexibilidaddemanda</td></tr><tr><td>fundamento competitividad</td><td>precio</td><td>innovación y particularidades del producto</td></tr><tr><td>global vs. individual</td><td>centro en lo individual (maquina, empresa, trabajador)</td><td>relaciones sitstémicas entre grupostotal quality managment, redes interempresariales...</td></tr><tr><td>papel del trabajo</td><td>costo de producción a minimizar</td><td>recurso con potencial a maximizar</td></tr></tbody></table></figure><h4><a name='header-n304' class='md-header-anchor '></a>11.  Qué se entiende por crisis posfordista del autoritarismo fabril?</h4><p>se precisa más flexibilidad, las relaciones entre las empresas priorizan calidad, predictibilidad e innovación más que el precio.</p><p>antes se buscaba minimizar los sueldos, y se contaba con un ejercito laboral de reserva. </p><ul><li><p>antes</p><ul><li><p>prioriza minimizar precio</p><ul><li>minimizar salario</li><li>ejercito laboral de reserva</li></ul></li></ul></li><li><p>ahora</p><ul><li><p>prioriza calidad, estabilidad e innovación</p><ul><li>se busca la cooperación y creatividad de la fuerza de trabajo</li><li>se le &quot;asegura&quot; la estabilidad del empleo.</li><li>minimiza la fragmentación de tareas</li><li>capacitación múltiple</li></ul></li></ul></li></ul><h4><a name='header-n344' class='md-header-anchor '></a>12.  Caracterice las rutas posfordistas sueca y japonesa. Qué modelos de innovación sigue  cada una?</h4><figure><table><thead><tr><th>Japón</th><th>Suecia</th></tr></thead><tbody><tr><td>legitimación consensual dela dominación jerárquica (feudalismo)</td><td>cooperación, democracia</td></tr><tr><td>la empresa da beneficios sociales. neo-kamikazes</td><td>menos efifiencia económica</td></tr></tbody></table></figure><h4><a name='header-n355' class='md-header-anchor '></a>13.  Por qué considera Arocena que el modelo japonés tiene más potencialidad para imponerse frente al modelo sueco?</h4><p>alta competencia internacional por precios -&gt; suecia es menos eficiente económicamente.</p><h4><a name='header-n358' class='md-header-anchor '></a>14.  Qué características señala Freeman son las que han llevado a Japón a la vanguardia en sus políticas de innovación?</h4><ul><li><p>políticas de desarrollo</p><ul><li>visión y política a largo plazo parala tecnología</li><li>promoción de las tecnologías más avanzadas</li><li>70&#39;s: desarrollo menos costoso ambientalmente, basado en el conocimiento, con énfasis en IT</li></ul></li><li><p>educación:</p><ul><li>alto ratio de jóvenes educados, esp. en ciencia e ingeniería.</li><li>gran calidad y escala de capacitación industrial en la empresa</li></ul></li><li><p>social:</p><ul><li>abolición de distinciones entre cuello azul y blanco</li><li>&quot;ganancias participativas&quot; (bonos)</li><li>empleo de por vida</li><li>la fuerza de trabajo está muy involucrada</li><li>jerarquía pero buenas posibilidades de ascenso social</li></ul></li><li><p>estudios prospectivos muy difundidos y utilizados</p></li><li><p>proyecto nacional de innovación </p></li></ul><h4><a name='header-n406' class='md-header-anchor '></a>15.  Qué consideraciones críticas se hacen respecto del desarrollo económico del sudeste asiático? Qué enseñanzas deja?</h4><ul><li>estado intervencionista que implementa política selectiva de sustitución de importaciones, seguida de una liberalización importadora gradual.</li><li>protección de robrus básicos par aasegurar la autosuficiencia alimentaria</li><li>resistencia a la organización de los trabajadores: distribución de ingresos regresiva</li><li>minimiza participación de empresas trasnacionales</li><li>sede de tercerización por bajos sueldos</li></ul><h4><a name='header-n426' class='md-header-anchor '></a>16 Caracterice el actual paradigma tecno-económico. Qué rol ocupa el procesamiento de información y el factor humano?</h4><ul><li><p>Freeman: </p><ul><li>desde 1980/1990</li><li>tecnologías de información y comunicación. difusión de sus dispositivos.</li><li>centralidad de la microelectrónica</li><li>producción flexible</li><li>economías de rango (lowering average cost by producing more types of products.)</li><li>diseño, producción y mercadeo integrados</li><li>colaboración entre empresas grandes y pequeñas</li></ul></li><li><p>las ventajas de la I.T. depende de cambios en la organización y desempeño de la gestión, hacia un modelo de máxima eficiencia productiva: un nuevo sentido común.</p></li><li><p>de estructuras piramidales y cerradas a redes planas, interactivas y abiertas de colaboración interdisciplinaria en objetivos no parcelados. </p><ul><li>&quot;inteligencia distribuida&quot;</li><li>empowerment</li></ul></li><li><p>diversidad de la producción</p><ul><li>producción flexible</li><li>formación polivalente de los trabajadores</li><li>nuevas colaboraciones intra  y entre empresas, y con sus clientes</li></ul></li></ul><h4><a name='header-n480' class='md-header-anchor '></a>17.  Qué se entiende por “ventana de oportunidad” ante una transición del paradigma tecno-económico?</h4><ul><li>periodo de transición en el que hacer los cambios adecuados en las instituciones y políticas puede llevar a un auge económico.</li><li>nuevas industrias y productos</li><li>adoptar una nueva lógica </li><li>en los comienzos de una etapa de tecnologías y lógicas de eficiencia, los conocimientos son fácilmente obtenibles, pero luego se obstruyen por patentes, secreto industrial, etc.</li><li>son epocas de crisis</li></ul><h4><a name='header-n497' class='md-header-anchor '></a>18.  ???Reseñe las conclusiones a las que llega el autor en este recorrido histórico por las revoluciones industriales</h4><p>&nbsp;</p></div>
+</body>
+</html>
