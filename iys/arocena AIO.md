@@ -1,6 +1,6 @@
 [TOC]
 
-
+# Arocena
 
 ## Parte I
 
@@ -9,6 +9,10 @@
 sustitición de importaciones de algodón de india. 
 
 telar hidráulico satura la capacidad de los ríos --> máquina de vapor
+
+protestanismo: es necesario producir para  "comprarse el cielo"
+
+traducción de los textos árabes
 
 #### 2. ???Qué rol tuvo la ciencia en los orgígenes de la 1 R.I.?
 
@@ -24,7 +28,7 @@ importantes en cuanto a la calidad, no a la cantidad. lo primario fueron la mayo
 
 #### 4. Diferencia introducida por la máquina de vapor de Watts vs. el de Newcomen?
 
-menos carbón y de velocidad uniforme. surgió de la técnica  y no de la ciencia.
+menos carbón y de velocidad uniforme. surgió de la técnica  y no de la ciencia. fue una innovación
 
 #### 5. Por qué la fábrica construyó un nuevo puente entre innovación e invención? Relación con el sist. de producción de la R.I.
 
@@ -98,7 +102,7 @@ S. XIX: "la estructura fundamental de la teoría científica está asegurada". "
 
 la teoría de la relatividad y la cuántica rompen con la idea de  verdad científica. nueva visión historicista de la ciencia: nada es definitivo. 
 
-#### 
+a partir de 1970,  la era de la incertidumbre  + el avance tecnológico acelerado desdibujan las propuestas clásicas para el desarrollo. Empezar de nuevo.
 
 
 
@@ -136,7 +140,7 @@ la 2da rev es una revolucion porque produce un cambio acelerado en el equipamien
 
     ​					1770 1. rev
 
-    *​						1870 2° rev.*
+    *						1870 2° rev.*
 
     *​			imperialismos (busquedas de recursos en las colonias)*
 
@@ -171,7 +175,7 @@ demasiado compleja para la casualidad. los inventores tenian fuertes bases cient
 
 promoviendo y apoyando económicamente a emrpesas como RCA, TElefunken
 
-carrera espacial
+carrera espacial, marina (radio)
 
 
 #### 5. Qué estrategia llevó a Japón a ocupar un lugar destacado?
@@ -332,7 +336,195 @@ alta competencia internacional por precios -> suecia es menos eficiente económi
 
 ####  18.  ???Reseñe las conclusiones a las que llega el autor en este recorrido histórico por las revoluciones industriales
 
-
+*   el crecimiento es resultado de la capacidad de la sociedad ara crear creatividad
+*   estructura científica que contemple los más recientes avances y su integración con la industria y la educación
+*   convergencia de capacidad científica + análisis de la realidad  - se necesita investigación autónoma hasta para comprar tecnología ajena.
+*   las mano de obra barata (robotizacion) y los productos primarios (biotecnologia) ya no importa tanto, sino la innovación
+*   nueva división internacional del trabajo que probablemente lleve a grandes índices de desempleo para la periferia donde la población no está capacitada
+*   educación: actualización, flexibilización, diversificación y ampliación
+*   5 factores para evaluar cualquier modelo:
+    *   paradigma tecnológico
+    *   organización del trabajo
+    *   régimen de acumulación (excedentes, reinversiones)
+    *   regulación (equilibrio entre intereses individuales y sociales)
+    *   espacios y actores de la innovación
 
 [^fascismo]: sociedad como un organismo . todas las partes integradas. anti-comunismo. jerarquias, organismos, un equilibrio para la sociedad como un todo. el estado articula la armonia de las partes
 [^liberalismo]: inidvidualismo. competencia despiadada 
+
+## Quintanilla
+
+-   investigacion tecnologica
+
+    -   orientada a 
+
+        -   invenciones (innovacion).
+
+            -   resolucion de un problema practico mediante la creacion de una nueva tecnica/procedimiento.
+
+        -   aplicacion no orientada a algo en particular. universal.
+
+            -   valor: la novedad
+
+                *radical*: si inaugura un paradigma tencologico nuevo, afecta a loos componentes, resultados, o a la estructura de la técnica.
+                los más radicales afectan a todas las partes de una técnica, ej: maquina vapor, quimica, microchips
+
+                la tele por ejemplo no es nuevo paradigma tecnico pero generó nuevas industrias
+
+                tienen propiedades nuevas, usan nuevos componentes.
+
+                inauguran un procedimiento para resover toda una clase de problemas nuevos
+
+                produce un nuevo sentido comun
+
+        -   proyectos
+
+            resolucion de un problema practico mediante la combinacion de tecnicas preexistenties.
+
+            resuelve una situacion particular
+
+            valor: el "toque" del ingeniero.
+
+            produce diseño  que se traduce en un prototiopo
+
+
+
+#### innovacion vs. invencion 
+
+la innovacion puede quedar en la patente. innovacion: llega a la fabricacion
+
+
+
+#### tipos de investigación
+
+```mermaid
+graph LR
+B(BÁSICA) --> E(ESTRATÉGICA<br>orientada a un ámbito<br>para posibles<br>aplicaciones tecnológicas)
+B --> n(NO ORIENTADA<br>incrementar conocimiento<br>científico en gral.)
+A(APLICADA<br>conocer propiedades<br>y comportamiento<br>de sistemas concretos) --> C(Obj.Cientificos<br>conocimiento verdadero)
+A --> T(Obj.Tecnológicos<br>conocimiento útil)
+```
+
+
+
+#### idoneidad:
+
+disponibilidad de la tecnologíá, posibles usos, y su adecuación a los fines. 
+
+
+
+#### Evaluación tecnológica
+
+evaluación  de diseños
+
+```mermaid
+graph LR
+e(evaluacion) --> i(interna)
+i --> ifa(factibilidad,<br>reglas naturaleza)
+ifa --> ifam(material,<br>ciencia, conocimientos)
+ifa --> ifao(operacional,<br>tecnología, cómo)
+i --> ifia(fiabilidad<br>)
+e --> ex(externa)
+ex --> exi(idoneidad<br>contexto: comunidad)
+ex --> exc(consecuencias<br>prudencia)
+exc --> r(riesgo - salud)
+exc --> ia(impacto ambiental)
+exc --> is(impacto social)
+```
+
+
+
+racionalidad: los medios idoneos para los fines.
+
+# Programas I+D
+
+en un programa de I+D: decisiones politicas (el rumbo ) ....
+
+plan de acción cuyo objetivo es promover la investigación científica, el diseño, y la evaluación de tecnologías.
+
+```mermaid
+graph LR
+Idoneidad --> AB
+Objetivos --> AB(Inv. tecnologica<br>Aplicada Básica)
+Factibilidad --> AB
+Consecuencias --> D
+AB --> D(Desarrollo, Diseño,<br>Prototipos)
+EF(Eficiencia, Fiabilidad) --> D
+D --> Revisión
+D --> Producción
+D --> Abandono
+```
+
+
+
+
+
+# Globalización
+
+#### globalizacion
+
+sistema de creciente interaccion e interdependencia entre los distintos actores del nuevo sistema internacional (estado-nacion, transnacionales, regiones).
+
+las politicas de los estados pierden autonomia, dependiendo de las transnacionales
+
+"la aldea global"
+
+
+
+fines s. XIX modelo agroexportador
+
+1930-1960 sustitucion importacion
+
+1990 - consenso de washington : inicio globalizacion
+
+predominio financiero.(neoliberalismo - el dinero se mueve por encima de los productos)
+
+#### consenso de los commodities
+
+*   (todos los trigos son iguales, no tienen una caracteristica que los realse) 
+*   politicas extractivistas (latam es un espacio para extraer econoímicamente  riquezas para los paises centrales)
+    *   monoproducción  --> pérdida de biodiversidad
+    *   recursos no renovables
+    *   proyectos capital-intensivos (pocos puestos de trabajo por $ invertido)
+    *   criminalización de la protesta
+*   boom de precios que llevan a la reprimarización de las economías
+*   desposesión de tierras y recursos
+*   ​
+
+politica: democracia liberal (economia de mercado)
+
+#### neodesarrollismo liberal 
+
+**(ajuste)**
+
+*   estado subordinado al mercado
+
+
+*   desarrollo prometéico vinculado al crecimiento y modernización pero orientado a proyextos extractivos y no a la industrialización
+*   la naturaleza vista como capital inagotable - desarrollo sustentable "debil" (soluciones limpias)
+*   RSE
+
+#### neodesarrollismo progresista 
+
+**(reparto de bienes)**
+
+*   visón optimista de la naturaleza y sus ventajas comparativas que nos permitiría acorar la brecha."el dorado"
+*   Estado regulador
+*   políticas sociales basadas en la renta extractivista
+
+#### postdesarrollismo
+
+*   sectores sociales, ambientalistas, indigenistas
+
+
+*   limites del crecimiento
+*   Racionalidad ambiental
+    *   desarrollo sustentable "fuerte" 
+        *   crecimiento como un medio y no como un fin
+        *   respeto a la integridad de los sist. naturales
+    *   desarrollo sustentable "debil"
+    *   derechos de la naturaleza
+*   transicion hacia el post extractivismo
+    *   reforma tributaria
+    *   moratoria minera-petrolera-gasífera (regulación por la comunidad)
+*   superar el consumismo - repensar la teoría de las necesidades
