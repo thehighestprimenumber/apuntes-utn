@@ -10,5 +10,5 @@
 
 *   programacion dinamica
 
-     utiliza tablas de memorai para guardar resultados de calculos que se van a reutilizar
+     utiliza tablas de memorai para guardar resultados de calculos que se van a 
 
